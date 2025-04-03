@@ -1,0 +1,11 @@
+{
+  
+  "id" : 1,
+  "loginData" : {
+    "email": "eve.holt@reqres.in",  
+    "password" : "cityslicka"      
+},
+ "RegData" : {
+  "email": "eve.holt@reqres.in",  
+  "password": "pistol"      
+ }}

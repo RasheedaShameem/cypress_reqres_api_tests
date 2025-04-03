@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-03T20:31:41.387Z",
+    "end": "2025-04-03T20:31:42.359Z",
+    "duration": 972,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5eb9dace-d4d0-4f2b-b6c2-b8a98f0a01e1",
+      "title": "",
+      "fullFile": "cypress\\apiTests\\UserManagement.js",
+      "file": "cypress\\apiTests\\UserManagement.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "410d86a1-8aa6-4460-b30a-7a7cd5dd29b2",
+          "title": "ReqRes API Testing - User Management Scenarios",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should fetch a list of users",
+              "fullTitle": "ReqRes API Testing - User Management Scenarios Should fetch a list of users",
+              "timedOut": null,
+              "duration": 100,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getUsers().then(response => {\n  expect(response.status).to.eq(200);\n  cy.log(\"Page: \" + response.body.page);\n  cy.log(\"Total Users: \" + response.body.total);\n  console.log(\"Users Data:\", response.body.data);\n});",
+              "err": {},
+              "uuid": "34797b25-5318-4b58-92b9-589789d69c1d",
+              "parentUUID": "410d86a1-8aa6-4460-b30a-7a7cd5dd29b2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should fetch a single user",
+              "fullTitle": "ReqRes API Testing - User Management Scenarios Should fetch a single user",
+              "timedOut": null,
+              "duration": 67,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getSingleUser(this.userData.id).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.data.id).to.eq(1);\n});",
+              "err": {},
+              "uuid": "8a9e1fab-7771-4f84-a161-366811d04f4c",
+              "parentUUID": "410d86a1-8aa6-4460-b30a-7a7cd5dd29b2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should create a new user",
+              "fullTitle": "ReqRes API Testing - User Management Scenarios Should create a new user",
+              "timedOut": null,
+              "duration": 208,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const newUser = {\n  name: faker.person.firstName(),\n  job: faker.person.jobTitle()\n};\ncy.CreateUser(newUser.name, newUser.job).then(response => {\n  expect(response.status).to.eq(201);\n  expect(response.body.name).to.eq(newUser.name);\n  expect(response.body.job).to.eq(newUser.job);\n});",
+              "err": {},
+              "uuid": "8bdd2d8b-6995-4811-9002-b61b9a00b095",
+              "parentUUID": "410d86a1-8aa6-4460-b30a-7a7cd5dd29b2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should update user information",
+              "fullTitle": "ReqRes API Testing - User Management Scenarios Should update user information",
+              "timedOut": null,
+              "duration": 212,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const updatedUser = {\n  name: faker.person.firstName(),\n  job: faker.person.jobTitle()\n};\ncy.UpdateUser(2, updatedUser.name, updatedUser.job).then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.name).to.eq(updatedUser.name);\n  expect(response.body.job).to.eq(updatedUser.job);\n});",
+              "err": {},
+              "uuid": "0c54f773-48ce-44ce-a65a-ec9b55a8d33c",
+              "parentUUID": "410d86a1-8aa6-4460-b30a-7a7cd5dd29b2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should delete a user",
+              "fullTitle": "ReqRes API Testing - User Management Scenarios Should delete a user",
+              "timedOut": null,
+              "duration": 204,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userIdToDelete = 2; // Specify a user ID to delete\ncy.DeleteUser(userIdToDelete).then(response => {\n  expect(response.status).to.eq(204); // Status code for successful deletion\n});",
+              "err": {},
+              "uuid": "9dd15eb8-aa8f-47d2-bd96-fea757a0e6be",
+              "parentUUID": "410d86a1-8aa6-4460-b30a-7a7cd5dd29b2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should fetch a list of users and validate response schema",
+              "fullTitle": "ReqRes API Testing - User Management Scenarios Should fetch a list of users and validate response schema",
+              "timedOut": null,
+              "duration": 76,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getUsers().then(response => {\n  expect(response.status).to.eq(200);\n  expect(response.body.data).to.be.an('array');\n  // Validate schema of each user\n  response.body.data.forEach(user => {\n    expect(user).to.have.all.keys('id', 'email', 'first_name', 'last_name', 'avatar');\n    expect(user.id).to.be.a('number');\n    expect(user.email).to.be.a('string');\n    expect(user.first_name).to.be.a('string');\n    expect(user.last_name).to.be.a('string');\n    expect(user.avatar).to.be.a('string');\n  });\n});",
+              "err": {},
+              "uuid": "a4f9a3ad-935d-4f26-8c01-8cbe48cf6021",
+              "parentUUID": "410d86a1-8aa6-4460-b30a-7a7cd5dd29b2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "34797b25-5318-4b58-92b9-589789d69c1d",
+            "8a9e1fab-7771-4f84-a161-366811d04f4c",
+            "8bdd2d8b-6995-4811-9002-b61b9a00b095",
+            "0c54f773-48ce-44ce-a65a-ec9b55a8d33c",
+            "9dd15eb8-aa8f-47d2-bd96-fea757a0e6be",
+            "a4f9a3ad-935d-4f26-8c01-8cbe48cf6021"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 867,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
