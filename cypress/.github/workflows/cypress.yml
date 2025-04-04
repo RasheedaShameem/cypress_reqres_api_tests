@@ -1,0 +1,36 @@
+name: Cypress API Tests
+
+on:
+  push:
+    branches:
+      - main # Run the tests on every push to the main branch
+  pull_request:
+    branches:
+      - main # Run the tests when a pull request is made to the main branch
+
+jobs:
+  cypress-run:
+    runs-on: windows-latest # You can use different environments like 'ubuntu-latest', 'windows-latest', etc.
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2 # Checkout your code so the workflow can access it
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18' # Specify the Node.js version
+
+      - name: Install dependencies
+        run: npm install # Install the dependencies in your project (including Cypress)
+
+      - name: Run Cypress tests
+        run: npx cypress run --reporter mochawesome # This runs the tests and generates the Mochawesome report
+        env:
+          CI: true # Setting this to 'true' makes Cypress run in headless mode
+
+      - name: Upload Mochawesome Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: mochawesome-report
+          path: cypress/reports/*.html # Adjust the path to where your report is stored
