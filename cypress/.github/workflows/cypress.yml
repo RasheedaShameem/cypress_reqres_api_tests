@@ -3,10 +3,10 @@ name: Cypress API Tests
 on:
   push:
     branches:
-      - main # Run the tests on every push to the main branch
+      - master # Run the tests on every push to the master branch
   pull_request:
     branches:
-      - main # Run the tests when a pull request is made to the main branch
+      - master # Run the tests when a pull request is made to the main branch
 
 jobs:
   cypress-run:
