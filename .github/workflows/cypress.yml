@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2 # Checkout your code so the workflow can access it
+        uses: actions/checkout@v4 # Checkout your code so the workflow can access it
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '18' # Specify the Node.js version
 
@@ -30,7 +30,7 @@ jobs:
           CI: true # Setting this to 'true' makes Cypress run in headless mode
 
       - name: Upload Mochawesome Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
           path: cypress/reports/*.html # Adjust the path to where your report is stored
