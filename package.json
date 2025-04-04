@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "report": "mochawesome-merge cypress/reports/*.json > cypress/reports/results.json && mochawesome-report-generator cypress/reports/results.json"
-  },
+  "test": "cypress run --reporter mochawesome"  
+},
   "keywords": [],
   "author": "",
   "license": "ISC",

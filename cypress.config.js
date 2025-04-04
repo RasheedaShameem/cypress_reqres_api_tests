@@ -5,8 +5,6 @@ module.exports = defineConfig({
   reporterOptions: {
     reportDir: "cypress/reports",
     overwrite: true,
-    html: true,
-    json: true
   },
   e2e: {
     baseUrl: 'https://reqres.in/',
